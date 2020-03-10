@@ -12,6 +12,7 @@ class HomeTableViewController: UITableViewController {
     
     var tweetArr = [NSDictionary]()
     var numOfTweets: Int!
+    @IBOutlet var tweetTable: UITableView!
     
     let myRefreshControl = UIRefreshControl()
     
@@ -20,6 +21,14 @@ class HomeTableViewController: UITableViewController {
         loadTweets()
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
+        self.tweetTable.rowHeight = UITableView.automaticDimension
+        self.tweetTable.estimatedRowHeight = 150
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadTweets()
     }
     
     @objc func loadTweets() {
@@ -76,7 +85,7 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCellTableViewCell
-        
+                
         let user = tweetArr[indexPath.row]["user"] as! NSDictionary
         
         cell.usernameLabel.text = user["name"] as? String
@@ -89,6 +98,11 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+    cell.setLike(tweetArr[indexPath.row]["favorited"] as! Bool)
+    cell.setRetweet(tweetArr[indexPath.row]["retweeted"] as! Bool)
+    cell.tweetID = tweetArr[indexPath.row]["id"] as! Int
+        
         
         
         return cell
@@ -105,6 +119,7 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return tweetArr.count
     }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
