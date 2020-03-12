@@ -134,13 +134,24 @@
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hbh-jN-xys" id="4o9-Va-7Zb"/>
+                                </connections>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-PK-wZP">
+                                <rect key="frame" x="16" y="246" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gDy-xc-bMu" firstAttribute="trailing" secondItem="L2m-24-Cco" secondAttribute="trailing" id="Ehf-ES-Mi3"/>
                             <constraint firstItem="L2m-24-Cco" firstAttribute="top" secondItem="gDy-xc-bMu" secondAttribute="top" id="R3V-RI-SkF"/>
                             <constraint firstItem="L2m-24-Cco" firstAttribute="leading" secondItem="gDy-xc-bMu" secondAttribute="leading" id="U0k-2t-Yk8"/>
+                            <constraint firstItem="YV9-PK-wZP" firstAttribute="top" secondItem="L2m-24-Cco" secondAttribute="bottom" constant="8" id="aAv-9Z-dr6"/>
+                            <constraint firstItem="YV9-PK-wZP" firstAttribute="leading" secondItem="Pm6-2j-Whs" secondAttribute="leadingMargin" id="nLK-r6-pcp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gDy-xc-bMu"/>
                     </view>
@@ -159,6 +170,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charRemain" destination="YV9-PK-wZP" id="4J3-jn-0dq"/>
                         <outlet property="tweetTextView" destination="L2m-24-Cco" id="SF7-ON-1Wq"/>
                     </connections>
                 </viewController>
