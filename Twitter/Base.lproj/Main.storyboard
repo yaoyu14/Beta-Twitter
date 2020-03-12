@@ -150,8 +150,8 @@
                             <constraint firstItem="gDy-xc-bMu" firstAttribute="trailing" secondItem="L2m-24-Cco" secondAttribute="trailing" id="Ehf-ES-Mi3"/>
                             <constraint firstItem="L2m-24-Cco" firstAttribute="top" secondItem="gDy-xc-bMu" secondAttribute="top" id="R3V-RI-SkF"/>
                             <constraint firstItem="L2m-24-Cco" firstAttribute="leading" secondItem="gDy-xc-bMu" secondAttribute="leading" id="U0k-2t-Yk8"/>
-                            <constraint firstItem="YV9-PK-wZP" firstAttribute="top" secondItem="L2m-24-Cco" secondAttribute="bottom" constant="8" id="aAv-9Z-dr6"/>
-                            <constraint firstItem="YV9-PK-wZP" firstAttribute="leading" secondItem="Pm6-2j-Whs" secondAttribute="leadingMargin" id="nLK-r6-pcp"/>
+                            <constraint firstItem="YV9-PK-wZP" firstAttribute="leading" secondItem="Pm6-2j-Whs" secondAttribute="leadingMargin" id="hYc-WG-zeE"/>
+                            <constraint firstItem="YV9-PK-wZP" firstAttribute="top" secondItem="L2m-24-Cco" secondAttribute="bottom" constant="8" id="tHa-lL-EzV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gDy-xc-bMu"/>
                     </view>
