@@ -90,6 +90,7 @@ class HomeTableViewController: UITableViewController {
         
         cell.usernameLabel.text = user["name"] as? String
         cell.tweetContent.text = tweetArr[indexPath.row]["text"] as? String
+        cell.timeLabel.text = getTime(timeString: (tweetArr[indexPath.row]["created_at"] as! String))
         
         let imageUrl = URL(string: (user["profile_image_url_https"] as! String))
         
@@ -107,6 +108,16 @@ class HomeTableViewController: UITableViewController {
         
         return cell
     }
+    
+    func getTime(timeString: String) -> String{
+        let time: Date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        time = dateFormatter.date(from: timeString)!
+        return time.timeAgoDisplay()
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -121,59 +132,24 @@ class HomeTableViewController: UITableViewController {
     }
     
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+extension Date {
+      func timeAgoDisplay() -> String {
+          let secondsAgo = Int(Date().timeIntervalSince(self))
+          let minute = 60
+          let hour = 60 * minute
+          let day = 24 * hour
+          let week = 7 * day
+          if secondsAgo < minute {
+              return "\(secondsAgo) sec ago"
+          } else if secondsAgo < hour {
+              return "\(secondsAgo / minute) min ago"
+          } else if secondsAgo < day {
+              return "\(secondsAgo / hour) hr ago"
+          } else if secondsAgo < week {
+              return "\(secondsAgo / day) day(s) ago"
+          }
+          return "\(secondsAgo / week) week(s) ago"
+      }
+  }

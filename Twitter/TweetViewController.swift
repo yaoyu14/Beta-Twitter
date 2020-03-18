@@ -14,7 +14,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         tweetTextView.becomeFirstResponder()
         
-        charRemain.text = "140"
+        charRemain.text = "0"
 
         // Do any additional setup after loading the view.
     }
@@ -43,10 +43,10 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         }
         
         let characterLimit = 140
-        let charsInTextView = -tweetTextView.text.count
-        let remainingChar = characterLimit + charsInTextView
+        let charsInTextView = tweetTextView.text.count
+        //let remainingChar = characterLimit + charsInTextView
         
-        if remainingChar < 0 {
+        if charsInTextView > characterLimit {
             let alert = UIAlertController(title: "Too many words in tweet!", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -56,12 +56,11 @@ class TweetViewController: UIViewController, UITextViewDelegate {
     
     func checkRemainingChar() {
         
-        let characterLimit = 140
-        let charsInTextView = -tweetTextView.text.count
-        let remainingChar = characterLimit + charsInTextView
-        charRemain.text = String(remainingChar)
+        let charsInTextView = tweetTextView.text.count
+        //let remainingChar = characterLimit + charsInTextView
+        charRemain.text = String(charsInTextView)
         
-        if remainingChar <= 10 {
+        if charsInTextView >= 130 {
             charRemain.textColor = UIColor.red
         }
     }

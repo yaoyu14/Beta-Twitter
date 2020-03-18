@@ -31,14 +31,14 @@
                                                 <constraint firstAttribute="height" constant="50" id="jKs-s3-SxJ"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVQ-7Y-6VO">
-                                            <rect key="frame" x="74" y="11" width="47.333333333333343" height="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVQ-7Y-6VO">
+                                            <rect key="frame" x="74" y="11" width="47.333333333333343" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qen-tb-365">
-                                            <rect key="frame" x="74" y="37" width="301" height="52"/>
+                                            <rect key="frame" x="74" y="36" width="301" height="53"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -65,8 +65,15 @@
                                                 <action selector="retweet:" destination="itq-tK-uYm" eventType="touchUpInside" id="bQu-GP-nlA"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSz-IT-oUB" userLabel="Time label">
+                                            <rect key="frame" x="136.33333333333337" y="11" width="214.66666666666663" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="uSz-IT-oUB" firstAttribute="leading" secondItem="nVQ-7Y-6VO" secondAttribute="trailing" constant="15" id="3Wq-X9-Qol"/>
                                         <constraint firstAttribute="trailing" secondItem="Qen-tb-365" secondAttribute="trailing" id="45u-Ed-5Yo"/>
                                         <constraint firstItem="Sag-BN-GNg" firstAttribute="top" secondItem="bqD-cN-J1X" secondAttribute="topMargin" id="9ds-XX-GfK"/>
                                         <constraint firstItem="wpi-zo-udp" firstAttribute="leading" secondItem="kPr-d9-bZx" secondAttribute="trailing" constant="10" id="9mN-yi-hWo"/>
@@ -76,7 +83,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="kPr-d9-bZx" secondAttribute="bottom" constant="10" id="RMO-fC-Chx"/>
                                         <constraint firstItem="nVQ-7Y-6VO" firstAttribute="leading" secondItem="Sag-BN-GNg" secondAttribute="trailing" constant="8" id="UpK-6L-DBY"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="wpi-zo-udp" secondAttribute="trailing" constant="10" id="gIA-Mt-kCK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uSz-IT-oUB" secondAttribute="trailing" constant="8" id="gYr-xK-eYD"/>
                                         <constraint firstItem="Qen-tb-365" firstAttribute="top" secondItem="nVQ-7Y-6VO" secondAttribute="bottom" constant="4" id="hzW-TU-JNT"/>
+                                        <constraint firstItem="uSz-IT-oUB" firstAttribute="top" secondItem="bqD-cN-J1X" secondAttribute="topMargin" id="iM2-kQ-sIC"/>
                                         <constraint firstItem="nVQ-7Y-6VO" firstAttribute="top" secondItem="bqD-cN-J1X" secondAttribute="topMargin" id="pHi-Lk-AQ1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="wpi-zo-udp" secondAttribute="bottom" constant="10" id="zr2-ny-k4P"/>
                                     </constraints>
@@ -85,6 +94,7 @@
                                     <outlet property="likeButton" destination="wpi-zo-udp" id="TSu-Ga-0DZ"/>
                                     <outlet property="profileImageView" destination="Sag-BN-GNg" id="O8M-8E-hnR"/>
                                     <outlet property="retweetButton" destination="kPr-d9-bZx" id="zr1-XO-hIi"/>
+                                    <outlet property="timeLabel" destination="uSz-IT-oUB" id="2ah-ti-B7i"/>
                                     <outlet property="tweetContent" destination="Qen-tb-365" id="d9v-Oo-FYV"/>
                                     <outlet property="usernameLabel" destination="nVQ-7Y-6VO" id="ho4-Yx-xP1"/>
                                 </connections>
